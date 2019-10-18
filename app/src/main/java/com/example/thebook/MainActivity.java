@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("ShowToast")
             @Override
             public void onItemClick(View v, int position) {
-                Toast.makeText(getApplicationContext(), titleList.get(position), Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), titleList.get(position).replace("_", " "), Toast.LENGTH_SHORT).show();
             }
         });
 
