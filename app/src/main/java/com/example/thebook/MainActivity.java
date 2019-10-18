@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
     private TitleFragment titleFragment;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container_for_fragments, fragment);
         fragmentTransaction.addToBackStack(null);

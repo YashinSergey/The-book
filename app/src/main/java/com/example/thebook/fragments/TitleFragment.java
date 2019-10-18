@@ -1,7 +1,6 @@
 package com.example.thebook.fragments;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +18,15 @@ import com.example.thebook.CustomItemClickListener;
 import com.example.thebook.MainActivity;
 import com.example.thebook.R;
 import com.example.thebook.TitleAdapter;
+import com.example.thebook.TitlePreferences;
 
 import java.util.ArrayList;
 
 public class TitleFragment extends Fragment {
 
+    private static final String TAG = "TitleFragment";
     private ArrayList<String> titleList;
+
     private RecyclerView recyclerView;
     private MainActivity activity;
 
@@ -61,6 +63,9 @@ public class TitleFragment extends Fragment {
                 @SuppressLint("ShowToast")
                 @Override
                 public void onItemClick(View v, int position) {
+                    new TitlePreferences(activity).setTitleName(titleList.get(position));
+                    activity.replaceFragment(new BodyFragment());
+
                     Toast.makeText(activity.getApplicationContext(), titleList.get(position).replace("_", " "), Toast.LENGTH_SHORT).show();
                 }
             };
@@ -75,4 +80,5 @@ public class TitleFragment extends Fragment {
         list.add(Constants.VICTIMS_OF_CIRCUMSTANCES);
         list.add(Constants.TRAVELING_TO_KETTARY);
     }
+
 }
