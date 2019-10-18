@@ -1,53 +1,40 @@
 package com.example.thebook;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.thebook.fragments.TitleFragment;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = "MainActivity";
+    private TitleFragment titleFragment;
 
-    private ArrayList<String> titleList;
-    private RecyclerView recyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        titleList = new ArrayList<>();
-        fillTheList(titleList);
+        initFragments(savedInstanceState);
 
-        recyclerView = findViewById(R.id.title_recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
-        TitleAdapter titleAdapter = new TitleAdapter(this, titleList, new CustomItemClickListener() {
-            @SuppressLint("ShowToast")
-            @Override
-            public void onItemClick(View v, int position) {
-                Toast.makeText(getApplicationContext(), titleList.get(position).replace("_", " "), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        recyclerView.setAdapter(titleAdapter);
     }
 
-    private void fillTheList(ArrayList<String> list) {
-        list.add(Constants.DEBUT_IN_ECHO);
-        list.add(Constants.JUBA_CHEBOBARGO);
-        list.add(Constants.PRISON_SELL);
-        list.add(Constants.ALIEN);
-        list.add(Constants.THE_KING_OF_BANJA);
-        list.add(Constants.VICTIMS_OF_CIRCUMSTANCES);
-        list.add(Constants.TRAVELING_TO_KETTARY);
+    private void initFragments(Bundle savedInstanceState) {
+        titleFragment = new TitleFragment();
+        if (savedInstanceState == null) {
+            replaceFragment(titleFragment);
+        }
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container_for_fragments, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
