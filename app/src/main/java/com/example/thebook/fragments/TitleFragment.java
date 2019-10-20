@@ -21,13 +21,14 @@ import com.example.thebook.TitleAdapter;
 import com.example.thebook.TitlePreferences;
 
 import java.util.ArrayList;
+import io.reactivex.Single;
 
 public class TitleFragment extends Fragment {
 
     private static final String TAG = "TitleFragment";
     private ArrayList<String> titleList;
-
     private RecyclerView recyclerView;
+
     private MainActivity activity;
 
     @Override
@@ -63,7 +64,10 @@ public class TitleFragment extends Fragment {
                 @SuppressLint("ShowToast")
                 @Override
                 public void onItemClick(View v, int position) {
-                    new TitlePreferences(activity).setTitleName(titleList.get(position));
+                    TitlePreferences titlePreferences = new TitlePreferences(activity);
+                    titlePreferences.setTitleName(titleList.get(position));
+
+                    activity.singlePreferences = Single.just(titlePreferences.getTitleName());
                     activity.replaceFragment(new BodyFragment());
 
                     Toast.makeText(activity.getApplicationContext(), titleList.get(position).replace("_", " "), Toast.LENGTH_SHORT).show();

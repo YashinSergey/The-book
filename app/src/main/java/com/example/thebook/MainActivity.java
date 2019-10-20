@@ -7,11 +7,14 @@ import android.os.Bundle;
 
 import com.example.thebook.fragments.TitleFragment;
 
+import io.reactivex.Single;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = "MainActivity";
     private TitleFragment titleFragment;
+    public Single<String> singlePreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
