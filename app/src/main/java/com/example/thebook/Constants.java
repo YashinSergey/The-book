@@ -8,5 +8,5 @@ public interface Constants {
     String ALIEN = "4.Alien";
     String THE_KING_OF_BANJA = "5.The_king_of_banja";
     String VICTIMS_OF_CIRCUMSTANCES = "6.Victims_of_circumstances";
-    String TRAVELING_TO_KETTARY = "7.Traveling_to_Kettary.html";
+    String TRAVELING_TO_KETTARY = "7.Traveling_to_Kettary";
 }
