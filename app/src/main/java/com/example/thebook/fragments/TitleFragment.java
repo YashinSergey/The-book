@@ -18,7 +18,6 @@ import com.example.thebook.CustomItemClickListener;
 import com.example.thebook.MainActivity;
 import com.example.thebook.R;
 import com.example.thebook.TitleAdapter;
-import com.example.thebook.TitlePreferences;
 
 import java.util.ArrayList;
 import io.reactivex.Single;
@@ -64,12 +63,8 @@ public class TitleFragment extends Fragment {
                 @SuppressLint("ShowToast")
                 @Override
                 public void onItemClick(View v, int position) {
-                    TitlePreferences titlePreferences = new TitlePreferences(activity);
-                    titlePreferences.setTitleName(titleList.get(position));
-
-                    activity.singlePreferences = Single.just(titlePreferences.getTitleName());
+                    activity.singlePreferences = Single.just(titleList.get(position));
                     activity.replaceFragment(new BodyFragment());
-
                     Toast.makeText(activity.getApplicationContext(), titleList.get(position).replace("_", " "), Toast.LENGTH_SHORT).show();
                 }
             };
