@@ -23,7 +23,6 @@ public class BodyFragment extends Fragment {
     private WebView webView;
     private String baseUri = "file:///android_asset/";
     private String extension = ".html";
-    //    D:\Programming\The-book\app\src\main\assets\1.Debut_in_Echo.html
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +38,7 @@ public class BodyFragment extends Fragment {
         TitlePreferences preferences = new TitlePreferences(activity);
 
         webView = view.findViewById(R.id.webView);
+
         if (!preferences.getTitleName().equals("")) {
             String uri = baseUri + preferences.getTitleName() + extension;
             webView.loadUrl(uri);
@@ -47,7 +47,6 @@ public class BodyFragment extends Fragment {
             webSettings.setDisplayZoomControls(false);
             webSettings.setJavaScriptEnabled(true);
         }
-
 
         return view;
     }
