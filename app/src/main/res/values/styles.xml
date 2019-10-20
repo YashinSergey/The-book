@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BookTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/bookColorPrimary</item>
+        <item name="colorPrimaryDark">@color/bookColorPrimaryDark</item>
+        <item name="colorAccent">@color/bookColorAccent</item>
+    </style>
 </resources>
