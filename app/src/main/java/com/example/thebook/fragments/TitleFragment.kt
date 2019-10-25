@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.thebook.Constants
-import com.example.thebook.CustomItemClickListener
-import com.example.thebook.MainActivity
+import com.example.thebook.data.Constants
+import com.example.thebook.adapters.CustomItemClickListener
+import com.example.thebook.ui.MainActivity
 import com.example.thebook.R
-import com.example.thebook.TitleAdapter
+import com.example.thebook.adapters.TitleAdapter
 
 import java.util.ArrayList
 import io.reactivex.Single

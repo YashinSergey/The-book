@@ -1,4 +1,4 @@
-package com.example.thebook
+package com.example.thebook.data
 
 interface Constants {
     companion object {

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.fragment.app.Fragment
 
-import com.example.thebook.MainActivity
+import com.example.thebook.ui.MainActivity
 import com.example.thebook.R
 
 import io.reactivex.SingleObserver
