@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="bookColorPrimary">#a17c49</color>
+    <color name="bookColorPrimaryDark">#a06b39</color>
+    <color name="bookColorAccent">#D81B60</color>
 </resources>
